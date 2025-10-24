@@ -1,11 +1,3 @@
-/**
-* Template Name: DevFolio
-* Updated: Jan 29 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -1099,6 +1091,13 @@ a:hover {
   color: green;
 }
 
+#echo-link {
+  color: blue;
+}
+#echo-link:hover {
+  color: green;
+}
+
 #nist-link {
   color: blue;
 }
@@ -1149,6 +1148,31 @@ a:hover {
   color: purple;
 }
 #main-cert-link:hover {
+  color: green;
+}
+
+#alx-link {
+  color: green;
+}
+#alx-link:hover {
+  color: blue;
+}
+#alx-link {
+  color: green;
+}
+#alx-link:hover {
+  color: blue;
+}
+#alx-verify-link {
+  color: blue;
+}
+#alx-verify-link:hover {
+  color: green;
+}
+#alx-cert-link {
+  color: purple;
+}
+#alx-cert-link:hover {
   color: green;
 }
 
@@ -1298,7 +1322,7 @@ a:hover {
 #linux-cert-link {
   color: purple;
 }
-#-cert-link:hover {
+#linux-cert-link:hover {
   color: green;
 }
 
