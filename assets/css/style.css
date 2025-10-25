@@ -675,6 +675,30 @@ a:hover {
   color: #aaa; /* optional hover effect */
 }
 
+/* Remove white background for both open and close states */
+.mobile-nav-toggle,
+.navbar-mobile .mobile-nav-toggle {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the icon (both hamburger and X) */
+.mobile-nav-toggle i {
+  color: #fff; /* or your preferred color */
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Optional hover color */
+.mobile-nav-toggle i:hover {
+  color: #aaa;
+}
+
 .navbar-mobile {
   position: fixed;
   overflow: hidden;
