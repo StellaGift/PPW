@@ -836,6 +836,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('#navbar a[href^="#"]');
+  const navbar = document.querySelector('#navbar');
+  const toggle = document.querySelector('.mobile-nav-toggle');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile');
+        toggle.classList.toggle('bi-list');
+        toggle.classList.toggle('bi-x');
+      }
+    });
+  });
+});
+</script>
+
                   <div class="col-md-6">
                     <div class="title-box-2 pt-4 pt-md-0">
                       <h5 class="title-left">
