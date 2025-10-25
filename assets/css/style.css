@@ -632,6 +632,29 @@ a:hover {
   }
 }
 
+/**
+* Menu mobile closing
+*/
+.navbar-mobile .mobile-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #4e4e4e;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.mobile-close {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .navbar-mobile .mobile-close {
+    display: block;
+  }
+}
+
 .navbar-mobile {
   position: fixed;
   overflow: hidden;
