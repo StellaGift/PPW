@@ -33,7 +33,9 @@
     <h1 class="logo"><a href="index.html">Tech Odyssey</a></h1>
 
     <!-- Mobile toggle button (used by the template JS) -->
-    <button class="mobile-nav-toggle d-lg-none" type="button"><i class="bi bi-list"></i></button>
+    <button class="mobile-nav-toggle d-lg-none" type="button">
+  <i class="bi bi-list"></i>
+</button>
 
     <nav id="navbar" class="navbar">
       <ul>
@@ -850,6 +852,19 @@ document.addEventListener('DOMContentLoaded', function() {
         toggle.classList.toggle('bi-x');
       }
     });
+  });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const navbar = document.querySelector('#navbar');
+
+  toggle.addEventListener('click', function() {
+    navbar.classList.toggle('navbar-mobile');
+    this.querySelector('i').classList.toggle('bi-list');
+    this.querySelector('i').classList.toggle('bi-x');
   });
 });
 </script>
