@@ -36,7 +36,6 @@
     <button class="mobile-nav-toggle d-lg-none" type="button"><i class="bi bi-list"></i></button>
 
     <nav id="navbar" class="navbar">
-      <div class="mobile-close d-lg-none"><i class="bi bi-x"></i></div>
       <ul>
         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
@@ -868,21 +867,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.querySelector(".navbar");
-  const closeBtn = document.querySelector(".mobile-close");
-  const toggleIcon = document.querySelector(".mobile-nav-toggle i");
 
-  if (closeBtn) {
-    closeBtn.addEventListener("click", function () {
-      navbar.classList.remove("navbar-mobile");
-      toggleIcon.classList.add("bi-list");
-      toggleIcon.classList.remove("bi-x");
-    });
-  }
-});
-</script>
 
 </body>
 
