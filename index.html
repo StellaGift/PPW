@@ -33,9 +33,7 @@
     <h1 class="logo"><a href="index.html">Tech Odyssey</a></h1>
 
     <!-- Mobile toggle button (visible only on small screens) -->
-    <button class="mobile-nav-toggle d-lg-none" type="button">
-  <i class="bi bi-list"></i>
-</button>
+    <button class="mobile-nav-toggle d-lg-none" type="button"><i class="bi bi-list"></i></button>
 
     <nav id="navbar" class="navbar">
       <ul>
@@ -882,41 +880,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.querySelector(".navbar");
-  const toggleBtn = document.querySelector(".mobile-nav-toggle");
-  const toggleIcon = toggleBtn.querySelector("i");
-
-  toggleBtn.addEventListener("click", function () {
-    navbar.classList.toggle("navbar-mobile");
-    toggleIcon.classList.toggle("bi-list");
-    toggleIcon.classList.toggle("bi-x");
-  });
-
-  // Close menu when any link is clicked
-  document.querySelectorAll(".navbar a").forEach(link => {
-    link.addEventListener("click", () => {
-      if (navbar.classList.contains("navbar-mobile")) {
-        navbar.classList.remove("navbar-mobile");
-        toggleIcon.classList.add("bi-list");
-        toggleIcon.classList.remove("bi-x");
-      }
-    });
-  });
-
-  // Handle dropdown click inside mobile view
-  document.querySelectorAll(".navbar .dropdown > a").forEach(drop => {
-    drop.addEventListener("click", function (e) {
-      if (navbar.classList.contains("navbar-mobile")) {
-        e.preventDefault();
-        this.nextElementSibling.classList.toggle("dropdown-active");
-      }
-    });
-  });
-});
-</script>
 
 
 </body>
