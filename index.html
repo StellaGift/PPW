@@ -813,6 +813,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }, true); // useCapture true to get ahead of other listeners
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownLinks = document.querySelectorAll('.navbar .dropdown > a');
+  dropdownLinks.forEach(link => {
+    let tappedOnce = false;
+    link.addEventListener('click', function(e) {
+      const isMobile = window.innerWidth < 992;
+      if (isMobile && !tappedOnce) {
+        e.preventDefault();
+        tappedOnce = true;
+        // close other open dropdowns
+        dropdownLinks.forEach(other => {
+          if (other !== link) other.parentElement.classList.remove('dropdown-active');
+        });
+        link.parentElement.classList.toggle('dropdown-active');
+        setTimeout(() => tappedOnce = false, 800);
+      }
+    });
+  });
+});
+</script>
+
                   <div class="col-md-6">
                     <div class="title-box-2 pt-4 pt-md-0">
                       <h5 class="title-left">
