@@ -868,6 +868,62 @@ document.addEventListener("DOMContentLoaded", () => {
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
+  const toggleBtn = document.querySelector(".mobile-nav-toggle");
+  const toggleIcon = toggleBtn.querySelector("i");
+
+  // --- Toggle mobile menu open/close ---
+  toggleBtn.addEventListener("click", function () {
+    navbar.classList.toggle("navbar-mobile");
+    toggleIcon.classList.toggle("bi-list");
+    toggleIcon.classList.toggle("bi-x");
+  });
+
+  // --- Close menu when any link (not dropdown parent) is clicked ---
+  document.querySelectorAll(".navbar a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (navbar.classList.contains("navbar-mobile") && !link.classList.contains("dropdown-toggle")) {
+        navbar.classList.remove("navbar-mobile");
+        toggleIcon.classList.add("bi-list");
+        toggleIcon.classList.remove("bi-x");
+      }
+    });
+  });
+
+  // --- Handle dropdown toggle on mobile ---
+  document.querySelectorAll(".navbar .dropdown > a").forEach(drop => {
+    drop.addEventListener("click", function (e) {
+      if (navbar.classList.contains("navbar-mobile")) {
+        const subMenu = this.nextElementSibling;
+        const isAboutLink = this.getAttribute("href") === "#about";
+
+        // Fix for ABOUT link: first tap opens dropdown, second tap navigates
+        if (isAboutLink) {
+          if (!this.dataset.tapped) {
+            e.preventDefault();
+            this.dataset.tapped = "true";
+            subMenu.classList.toggle("dropdown-active");
+            setTimeout(() => (this.dataset.tapped = ""), 800); // reset after short delay
+          } else {
+            this.dataset.tapped = "";
+            navbar.classList.remove("navbar-mobile");
+            toggleIcon.classList.add("bi-list");
+            toggleIcon.classList.remove("bi-x");
+            window.location.hash = "#about";
+          }
+        } else {
+          // For other dropdown parents, just toggle the dropdown normally
+          e.preventDefault();
+          subMenu.classList.toggle("dropdown-active");
+        }
+      }
+    });
+  });
+});
+</script>
+
 
 </body>
 
