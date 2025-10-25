@@ -818,105 +818,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  const navbar = document.querySelector('#navbar');
   const toggleBtn = document.querySelector('.mobile-nav-toggle');
-  const navbar = document.getElementById('navbar');
+  const navLinks = navbar.querySelectorAll('a[href^="#"], a[href$=".html"]');
 
-  // Toggle mobile menu and swap icons
-  function openMobileNav() {
-    navbar.classList.add('navbar-mobile');
-    toggleBtn.querySelector('i').classList.remove('bi-list');
-    toggleBtn.querySelector('i').classList.add('bi-x');
-    // optional: prevent body scroll when open
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobileNav() {
-    navbar.classList.remove('navbar-mobile');
-    toggleBtn.querySelector('i').classList.remove('bi-x');
-    toggleBtn.querySelector('i').classList.add('bi-list');
-    document.body.style.overflow = '';
-    // close any open dropdowns state
-    navbar.querySelectorAll('.dropdown-active').forEach(li => li.classList.remove('dropdown-active'));
-  }
-
-  toggleBtn.addEventListener('click', function (e) {
-    if (navbar.classList.contains('navbar-mobile')) {
-      closeMobileNav();
-    } else {
-      openMobileNav();
-    }
+  // Toggle menu open/close
+  toggleBtn.addEventListener('click', function () {
+    navbar.classList.toggle('navbar-mobile');
+    this.querySelector('i').classList.toggle('bi-list');
+    this.querySelector('i').classList.toggle('bi-x');
   });
 
-  // 1) Handle dropdown parent behavior on mobile:
-  const dropdownParents = navbar.querySelectorAll('.dropdown > a');
-  dropdownParents.forEach(parent => {
-    parent.addEventListener('click', function (e) {
-      const href = parent.getAttribute('href') || '';
-      const isInPage = href.startsWith('#');
-
-      // If not mobile, let desktop hover/click behave as usual
-      if (window.innerWidth >= 992) return;
-
-      // Mobile behavior:
-      // If the dropdown is currently closed => open it and prevent navigation.
-      // If it's already open => allow navigation to its href (either in-page or external)
-      const parentLi = parent.parentElement;
-      const alreadyOpen = parentLi.classList.contains('dropdown-active');
-
-      if (!alreadyOpen) {
-        e.preventDefault();
-        // close other dropdowns
-        navbar.querySelectorAll('.dropdown-active').forEach(li => {
-          if (li !== parentLi) li.classList.remove('dropdown-active');
-        });
-        parentLi.classList.add('dropdown-active');
-        // ensure the dropdown is visible; do not close mobile nav
-        return;
-      }
-
-      // If already open and href is an in-page anchor, allow navigation and close menu
-      if (isInPage) {
-        // let browser jump to anchor then close menu shortly after (give browser a tick)
-        setTimeout(() => { closeMobileNav(); }, 50);
-        return; // allow default navigation
-      }
-
-      // For external or page links: allow default (navigation will occur)
-      // optionally close menu immediately
-      closeMobileNav();
-    });
-  });
-
-  // 2) Close mobile menu when clicking any in-page anchor link (including dropdown items)
-  const inPageLinks = navbar.querySelectorAll('a[href^="#"]');
-  inPageLinks.forEach(a => {
-    a.addEventListener('click', function (e) {
-      // If desktop or user clicked the nav anchor that might open a submenu, let previous handler manage it.
-      // But for general in-page anchors we close the menu to reveal destination content.
-      if (window.innerWidth < 992) {
-        // small timeout to allow the browser to jump to the anchor before removing the overlay
-        setTimeout(() => { closeMobileNav(); }, 60);
-      }
-    });
-  });
-
-  // 3) Ensure that when window resizes to desktop view we remove mobile classes
-  window.addEventListener('resize', function () {
-    if (window.innerWidth >= 992) {
-      // cleanup mobile state
+  // Close menu after clicking any link
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
       if (navbar.classList.contains('navbar-mobile')) {
-        closeMobileNav();
+        navbar.classList.remove('navbar-mobile');
+        toggleBtn.querySelector('i').classList.remove('bi-x');
+        toggleBtn.querySelector('i').classList.add('bi-list');
       }
-    }
+    });
   });
 
-  // 4) Click outside navbar closes mobile menu (nice-to-have)
-  document.addEventListener('click', function (e) {
-    if (window.innerWidth >= 992) return;
-    if (!navbar.contains(e.target) && !toggleBtn.contains(e.target) && navbar.classList.contains('navbar-mobile')) {
-      closeMobileNav();
-    }
+  // Handle dropdown open on mobile
+  document.querySelectorAll('.navbar .dropdown > a').forEach(parentLink => {
+    parentLink.addEventListener('click', function (e) {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        const parentLi = this.parentElement;
+        const isOpen = parentLi.classList.contains('dropdown-active');
+        document.querySelectorAll('.navbar .dropdown-active')
+          .forEach(li => li.classList.remove('dropdown-active'));
+        if (!isOpen) {
+          parentLi.classList.add('dropdown-active');
+        } else {
+          // if it's already open, follow its href
+          const target = this.getAttribute('href');
+          if (target.startsWith('#')) {
+            location.hash = target;
+          } else {
+            window.location.href = target;
+          }
+          navbar.classList.remove('navbar-mobile');
+          toggleBtn.querySelector('i').classList.remove('bi-x');
+          toggleBtn.querySelector('i').classList.add('bi-list');
+        }
+      }
+    });
   });
-
 });
 </script>
 
