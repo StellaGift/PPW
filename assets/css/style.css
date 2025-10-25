@@ -655,6 +655,26 @@ a:hover {
   }
 }
 
+.mobile-nav-toggle {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-toggle i {
+  color: #fff; /* or your preferred color */
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.mobile-nav-toggle i:hover {
+  color: #aaa; /* optional hover effect */
+}
+
 .navbar-mobile {
   position: fixed;
   overflow: hidden;
