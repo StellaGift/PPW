@@ -33,27 +33,24 @@
     <h1 class="logo"><a href="index.html">Tech Odyssey</a></h1>
 
     <!-- Mobile toggle button (visible only on small screens) -->
-    <button class="mobile-nav-toggle d-lg-none" type="button">
-  <i class="bi bi-list"></i>
-</button>
+    <button class="mobile-nav-toggle d-lg-none" type="button"><i class="bi bi-list"></i></button>
 
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-
-        <li class="dropdown">
-          <a class="nav-link" href="#about"><span>About</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a class="nav-link" href="cert.html">Certifications</a></li>
-            <li><a class="nav-link" href="resume.html">Resume</a></li>
-          </ul>
-        </li>
-
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
         <li><a class="nav-link scrollto" href="#services">Services</a></li>
         <li><a class="nav-link scrollto" href="#work">Projects</a></li>
-        <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
         <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        <li><a class="nav-link scrollto" href="#blog">Blog</a></li>
+        
+        <li class="dropdown">
+        <a class="nav-link" href="#more"><span>More</span> <i class="bi bi-chevron-down"></i></a>
+        <ul>
+        <li><a class="nav-link" href="cert.html">Certifications</a></li>
+            <li><a class="nav-link" href="resume.html">Resume</a></li>
       </ul>
+    </li>
     </nav><!-- .navbar -->
 
   </div>
@@ -869,62 +866,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const navbar = document.querySelector(".navbar");
-  const toggleBtn = document.querySelector(".mobile-nav-toggle");
-  const toggleIcon = toggleBtn.querySelector("i");
-
-  // --- Toggle mobile menu open/close ---
-  toggleBtn.addEventListener("click", function () {
-    navbar.classList.toggle("navbar-mobile");
-    toggleIcon.classList.toggle("bi-list");
-    toggleIcon.classList.toggle("bi-x");
-  });
-
-  // --- Close menu when any link (not dropdown parent) is clicked ---
-  document.querySelectorAll(".navbar a").forEach(link => {
-    link.addEventListener("click", () => {
-      if (navbar.classList.contains("navbar-mobile") && !link.classList.contains("dropdown-toggle")) {
-        navbar.classList.remove("navbar-mobile");
-        toggleIcon.classList.add("bi-list");
-        toggleIcon.classList.remove("bi-x");
-      }
-    });
-  });
-
-  // --- Handle dropdown toggle on mobile ---
-  document.querySelectorAll(".navbar .dropdown > a").forEach(drop => {
-    drop.addEventListener("click", function (e) {
-      if (navbar.classList.contains("navbar-mobile")) {
-        const subMenu = this.nextElementSibling;
-        const isAboutLink = this.getAttribute("href") === "#about";
-
-        // Fix for ABOUT link: first tap opens dropdown, second tap navigates
-        if (isAboutLink) {
-          if (!this.dataset.tapped) {
-            e.preventDefault();
-            this.dataset.tapped = "true";
-            subMenu.classList.toggle("dropdown-active");
-            setTimeout(() => (this.dataset.tapped = ""), 800); // reset after short delay
-          } else {
-            this.dataset.tapped = "";
-            navbar.classList.remove("navbar-mobile");
-            toggleIcon.classList.add("bi-list");
-            toggleIcon.classList.remove("bi-x");
-            window.location.hash = "#about";
-          }
-        } else {
-          // For other dropdown parents, just toggle the dropdown normally
-          e.preventDefault();
-          subMenu.classList.toggle("dropdown-active");
-        }
-      }
-    });
-  });
-});
-</script>
 
 
 </body>
