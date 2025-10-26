@@ -2037,7 +2037,7 @@ footer .credits a {
   position: absolute;
   top: 20px;     /* adjust as needed (try 15–25px range) */
   right: 20px;   /* keep it flush to the right edge */
-  font-size: 35px;
+  font-size: 42px;
   z-index: 9999; /* ensure it's always on top */
 }
 
