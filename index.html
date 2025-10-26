@@ -890,23 +890,12 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const toggleButton = document.querySelector('.mobile-nav-toggle');
-    const navbar = document.querySelector('#navbar');
+    const icon = toggleButton.querySelector('i');
 
-    if (toggleButton && navbar) {
-      toggleButton.addEventListener('click', function() {
-        navbar.classList.toggle('navbar-mobile');
-
-        // swap icon
-        const icon = this.querySelector('i');
-        if (icon.classList.contains('bi-list')) {
-          icon.classList.remove('bi-list');
-          icon.classList.add('bi-x');
-        } else {
-          icon.classList.remove('bi-x');
-          icon.classList.add('bi-list');
-        }
-      });
-    }
+    toggleButton.addEventListener('click', function() {
+      icon.classList.toggle('bi-list');
+      icon.classList.toggle('bi-x');
+    });
   });
 </script>
 
