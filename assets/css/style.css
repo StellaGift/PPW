@@ -2032,20 +2032,17 @@ footer .credits a {
   color: #fff;
 }
 
-/* Target only the index hero (the element you showed has id="hero") */
-#hero.bg-image {
-  background-size: cover !important;
-  background-position: center center !important; /* default for desktop */
-  background-repeat: no-repeat !important;
-  background-attachment: scroll !important;
-  min-height: 100vh;
+/* Align hamburger menu icon to top right */
+.mobile-nav-toggle {
+  position: absolute;
+  top: 20px;     /* adjust as needed (try 15–25px range) */
+  right: 20px;   /* keep it flush to the right edge */
+  font-size: 28px;
+  z-index: 9999; /* ensure it's always on top */
 }
 
-/* For narrow phones: shift image up so top of image stays visible */
-@media (max-width: 768px) {
-  #hero.bg-image {
-    background-position: center top !important;   /* shift focal area upward */
-    /* If cover still crops too much, try 'contain' instead (shows full image but may add empty space): */
-    /* background-size: contain !important; */
-  }
+/* Optional: ensure no offset when menu is active */
+.navbar-mobile .mobile-nav-toggle {
+  top: 20px;
+  right: 20px;
 }
