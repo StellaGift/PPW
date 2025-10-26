@@ -2040,20 +2040,3 @@ footer .credits a {
   font-size: 48px;
   z-index: 9999; /* ensure it's always on top */
 }
-
-/* Optional: ensure no offset when menu is active */
-.navbar-mobile .mobile-nav-toggle {
-  top: 20px;
-  right: 20px;
-}
-
-.mobile-nav-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 36px;
-  color: #fff;
-  z-index: 9999;
-  background: none;
-  border: none;
-}
