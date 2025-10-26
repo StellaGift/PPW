@@ -2032,11 +2032,20 @@ footer .credits a {
   color: #fff;
 }
 
-/* Index-only: show entire image on small screens */
+/* Target only the index hero (the element you showed has id="hero") */
+#hero.bg-image {
+  background-size: cover !important;
+  background-position: center center !important; /* default for desktop */
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+  min-height: 100vh;
+}
+
+/* For narrow phones: shift image up so top of image stays visible */
 @media (max-width: 768px) {
   #hero.bg-image {
-    background-size: contain !important;
-    background-position: center top !important;
-    min-height: 60vh; /* tune this so hero doesn't take too much vertical space */
+    background-position: center top !important;   /* shift focal area upward */
+    /* If cover still crops too much, try 'contain' instead (shows full image but may add empty space): */
+    /* background-size: contain !important; */
   }
 }
