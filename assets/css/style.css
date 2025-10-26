@@ -2031,20 +2031,3 @@ footer .credits {
 footer .credits a {
   color: #fff;
 }
-
-/* Ensure hero background image fits all screens */
-.hero.bg-image {
-  background-size: cover;       /* makes image cover the full area */
-  background-position: center;  /* keeps image centered */
-  background-repeat: no-repeat; /* prevents tiling */
-  background-attachment: scroll; /* fixes mobile issues with fixed backgrounds */
-  min-height: 100vh;            /* fills entire screen height */
-  width: 100%;
-}
-
-/* Optional: adjust container spacing on smaller screens */
-@media (max-width: 768px) {
-  .hero .container {
-    padding: 100px 20px 60px;
-  }
-}
