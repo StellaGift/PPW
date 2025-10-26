@@ -615,7 +615,7 @@ a:hover {
 */
 .mobile-nav-toggle {
   color: #fff;
-  font-size: 28px;
+  font-size: 48px;
   cursor: pointer;
   display: none;
   line-height: 0;
@@ -639,7 +639,7 @@ a:hover {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 28px;
+  font-size: 48px;
   color: #4e4e4e;
   cursor: pointer;
   z-index: 1001;
@@ -666,7 +666,7 @@ a:hover {
 
 .mobile-nav-toggle i {
   color: #fff; /* or your preferred color */
-  font-size: 28px;
+  font-size: 48px;
   cursor: pointer;
   transition: color 0.3s;
 }
