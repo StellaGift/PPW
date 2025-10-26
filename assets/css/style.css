@@ -2046,3 +2046,14 @@ footer .credits a {
   top: 20px;
   right: 20px;
 }
+
+.mobile-nav-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 36px;
+  color: #fff;
+  z-index: 9999;
+  background: none;
+  border: none;
+}

@@ -887,6 +887,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.mobile-nav-toggle');
+    const navbar = document.querySelector('#navbar');
+
+    if (toggleButton && navbar) {
+      toggleButton.addEventListener('click', function() {
+        navbar.classList.toggle('navbar-mobile');
+
+        // swap icon
+        const icon = this.querySelector('i');
+        if (icon.classList.contains('bi-list')) {
+          icon.classList.remove('bi-list');
+          icon.classList.add('bi-x');
+        } else {
+          icon.classList.remove('bi-x');
+          icon.classList.add('bi-list');
+        }
+      });
+    }
+  });
+</script>
+
 </body>
 
 </html>
