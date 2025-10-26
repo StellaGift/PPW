@@ -856,6 +856,26 @@ a:hover {
   color: #fff;
 }
 
+/* Ensure background image always fits nicely on all screens */
+.hero-section,       /* or whatever class your main page background uses */
+.landing-section, 
+.main-background {
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-attachment: scroll !important; /* prevents weird zoom on mobile */
+}
+
+/* Optional: improve layout on very small screens */
+@media (max-width: 768px) {
+  .hero-section,
+  .landing-section,
+  .main-background {
+    background-size: contain !important; /* fits full image within view */
+    background-position: top center !important;
+  }
+}
+
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
