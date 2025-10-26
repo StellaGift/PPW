@@ -856,26 +856,6 @@ a:hover {
   color: #fff;
 }
 
-/* Ensure background image always fits nicely on all screens */
-.hero-section,       /* or whatever class your main page background uses */
-.landing-section, 
-.main-background {
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-attachment: scroll !important; /* prevents weird zoom on mobile */
-}
-
-/* Optional: improve layout on very small screens */
-@media (max-width: 768px) {
-  .hero-section,
-  .landing-section,
-  .main-background {
-    background-size: contain !important; /* fits full image within view */
-    background-position: top center !important;
-  }
-}
-
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -2050,4 +2030,21 @@ footer .credits {
 
 footer .credits a {
   color: #fff;
+}
+
+/* Ensure hero background image fits all screens */
+.hero.bg-image {
+  background-size: cover;       /* makes image cover the full area */
+  background-position: center;  /* keeps image centered */
+  background-repeat: no-repeat; /* prevents tiling */
+  background-attachment: scroll; /* fixes mobile issues with fixed backgrounds */
+  min-height: 100vh;            /* fills entire screen height */
+  width: 100%;
+}
+
+/* Optional: adjust container spacing on smaller screens */
+@media (max-width: 768px) {
+  .hero .container {
+    padding: 100px 20px 60px;
+  }
 }
