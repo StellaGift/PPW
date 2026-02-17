@@ -1594,6 +1594,31 @@ a:hover {
   color: green;
 }
 
+#up-link {
+  color: green;
+}
+#up-link:hover {
+  color: blue;
+}
+#up-m-link {
+  color: green;
+}
+#up-m-link:hover {
+  color: blue;
+}
+#up-verify-link {
+  color: blue;
+}
+#up-verify-link:hover {
+  color: green;
+}
+#up-cert-link {
+  color: purple;
+}
+#up-cert-link:hover {
+  color: green;
+}
+
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
   font-weight: 700;
